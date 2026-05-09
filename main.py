@@ -444,6 +444,13 @@ def _startup() -> None:
     LOCATION_CANONICAL = canonical
     LOCATION_KEYS = sorted(idx.keys())
 
+
+@app.get("/")
+def root() -> dict[str, str]:
+    """Minimal health/info route for uptime checks (e.g. Render)."""
+    return {"status": "ok", "docs": "/docs"}
+
+
 @app.get("/locations/{location}", response_model=None)
 def get_by_location(
     location: str,
