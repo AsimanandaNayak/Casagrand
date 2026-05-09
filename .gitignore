@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+*.bak
+.idea/
+.vscode/
+
+# Nested/other repo — do not bundle into this remote
+Casagrand/
