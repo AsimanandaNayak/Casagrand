@@ -451,6 +451,12 @@ def root() -> dict[str, str]:
     return {"status": "ok", "docs": "/docs"}
 
 
+@app.head("/")
+def root_head() -> Response:
+    """Render / proxies may probe with HEAD; avoid 405 on `/`."""
+    return Response(status_code=200)
+
+
 @app.get("/locations/{location}", response_model=None)
 def get_by_location(
     location: str,
